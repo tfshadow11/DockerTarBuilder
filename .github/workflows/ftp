@@ -1,0 +1,23 @@
+名称：FTP上传
+ 
+在：
+  推：
+    分支机构：
+      - main  # 或者你的默认分支名称
+ 
+职位：
+  ftp 上传：
+    运行：ubuntu-latest
+    步骤：
+      - 名称：结帐代码
+        使用：actions/checkout@v2
+ 
+      - 名称：上传到 FTP
+        使用：nckrlbrn/ftp-deploy@master
+        环境：
+          FTP_HOST: your_ftp_host  # FTP服务器地址
+          FTP_USERNAME: your_ftp_username  # FTP登录用户名
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}  # FTP登录密码，存储在仓库密钥中
+          LOCAL_PATH: your_local_path  # 本地需要上传的文件或文件夹路径
+          REMOTE_PATH: your_remote_path  # FTP服务器上的目标路径
+          FTP_CONNECT_TIMEOUT: 60000  # 可选：FTP连接超时时间（毫秒）
